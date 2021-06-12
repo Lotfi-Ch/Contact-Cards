@@ -13,8 +13,26 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")))
 
 app.get('/Cards', (req, res) => {
     Cards.find().then(result => {
-        console.log("backend", result)
+        //console.log("backend", result)
         res.json(result)
+    }).catch(err => console.error(err))
+})
+
+app.post('/create', (req, res) => {
+    Cards.create(req.body).then(result => {
+        console.log("data here in back", result)
+        res.send(result)
+    })
+
+})
+
+app.delete('/delete/:name', (req, res) => {
+    Cards.deleteOne({ name: req.params.name }, (err, result) => {
+        console.log("delete req");
+        if (err) console.error(err)
+        else {
+            res.sendStatus(200)
+        }
     })
 })
 
