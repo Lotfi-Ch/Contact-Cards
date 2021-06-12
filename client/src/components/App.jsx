@@ -9,6 +9,8 @@ import Search from "./Search.jsx";
 import Create from "./Create.jsx";
 import Admin from "./Admin.jsx";
 
+import "./style.css"
+
 
 
 
@@ -55,7 +57,12 @@ class App extends React.Component {
         if (val === "search") {
             this.setState({ home: false, search: true, create: false, admin: false })
         } else if (val === "home") {
-            this.setState({ home: true, search: false, create: false, admin: false })
+            this.setState({
+                home: true,
+                search: false,
+                create: false,
+                admin: false
+            })
         } else if (val === "create") {
             this.setState({
                 home: false,
@@ -64,10 +71,12 @@ class App extends React.Component {
                 admin: false
             })
         } else if (val === "admin") {
-            this.setState({ home: false })
-            this.setState({ search: false })
-            this.setState({ create: false })
-            this.setState({ admin: true })
+            this.setState({
+                home: false,
+                search: false,
+                create: false,
+                admin: true
+            })
         }
 
     }
@@ -79,23 +88,31 @@ class App extends React.Component {
 
 
 
-            <Container>
-                <div> Where everything can be found</div>
-                <Button onClick={() => { if (this.state.input !== null) { return this.changeView("search") } }}> Search</Button>
+            <div>
 
-                <Button onClick={() => { return this.changeView("home") }}> Home</Button>
-                <Button onClick={() => { return this.changeView("create") }}>create</Button>
-                <Button onClick={() => { return this.changeView("admin") }}>Admin</Button>
+                <div class="topnav">
 
-                <input placeholder="what are you searching" onChange={this.handleChange} />
-                {console.log(this.state)}
-                <Form>
+                    <a onClick={() => { return this.changeView("home") }} className="active"> Home</a>
+                    <a onClick={() => { return this.changeView("create") }}>create</a>
+                    <a onClick={() => { return this.changeView("admin") }}>Admin</a>
+
+
+                    <div class="search-container">
+                        <form>
+                            <input type="text" placeholder="Who do you need?" name="search" onChange={this.handleChange} />
+                            <button type="submit" onClick={() => { if (this.state.input !== null) { return this.changeView("search") } }}> Search </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div>
                     {this.state.home && <Home cards={this.state.data} />}
                     {this.state.search && <Search data={this.state.data} input={this.state.input} />}
                     {this.state.create && <Create home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}
                     {this.state.admin && <Admin cards={this.state.data} changeView={this.changeView} handleDelete={this.remove.bind(this)} />}
-                </Form>
-            </Container>
+                </div>
+            </div >
         )
     }
 
