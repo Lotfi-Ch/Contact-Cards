@@ -2,17 +2,8 @@
 import axios from "axios";
 import React from "react";
 
+import "./style.css"
 
-
-let post = () => {
-    axios.post('/create', {
-        name: this.state.name,
-        job: this.state.job,
-        adress: this.state.adress,
-        contact: this.state.contact,
-        picture: this.state.picture
-    }).then(result => console.log("axios request", result))
-}
 
 
 
@@ -45,10 +36,12 @@ class Create extends React.Component {
     }
 
     changeView() {
-        this.setState({ home: true })
-        this.setState({ search: false })
-        this.setState({ home: false })
-        this.setState({ search: false })
+        this.setState({
+            home: true,
+            search: false,
+            admin: false,
+            create: false
+        }, () => console.log("helloo", this.state.home))
     }
     post() {
         axios.post('/create', {
@@ -56,23 +49,40 @@ class Create extends React.Component {
             job: this.state.job,
             adress: this.state.adress,
             contact: this.state.contact,
-            picture: this.state.picture
-        }).then(result => console.log("axios request", result))
+            picture: this.state.picture,
+            recommandations: 0
+        }).then(result => this.changeView())
     }
     render() {
 
         return (
-            <div>
-                <input placeholder="Enter your name" name="name" onChange={this.handleChange} />
-                <input placeholder="What is your job" name="job" onChange={this.handleChange} />
-                <input placeholder="Adress" name="adress" onChange={this.handleChange} />
-                <input placeholder="Phone number" name="number" onChange={this.handleChange} />
-                <input placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
-                <button onClick={() => {
-                    this.changeView()
-                    this.post()
+            < div id="card" >
+                <div id="createcard"> Create your business card here!  </div >
 
+
+                <div > Full Name </ div>
+                <input class="input" placeholder="Enter your name" name="name" onChange={this.handleChange} />
+                <div  > Job </div>
+                <input class="input" placeholder="What is your job" name="job" onChange={this.handleChange} />
+                <div > Adress </div>
+                <input class="input" placeholder="Adress" name="adress" onChange={this.handleChange} />
+                <div> Phone number </div>
+                <input class="input" placeholder="Phone number" name="number" onChange={this.handleChange} />
+                <div > Upload picture </div>
+                <input class="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
+                <button class="input" onClick={() => {
+                    console.log("name here", this.state.name)
+                    if (this.state.name === null || this.state.job === null || this.state.adress === null || this.state.number === null) {
+                        alert("Please complete all required fields")
+
+                    }
+                    else {
+                        this.post()
+                        alert("Your business card is created")
+                    }
                 }}>Submit</button>
+
+
             </div>
         )
 

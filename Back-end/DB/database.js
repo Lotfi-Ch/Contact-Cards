@@ -14,7 +14,8 @@ const CardSchema = new mongoose.Schema({
     job: String,
     adress: String,
     contact: Number,
-    picture: String
+    picture: String,
+    recommandations: Number
 });
 
 const Cards = mongoose.model('Cards', CardSchema);

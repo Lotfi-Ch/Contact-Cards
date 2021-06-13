@@ -88,20 +88,21 @@ class App extends React.Component {
 
 
 
-            <div>
+            <div id="home">
 
                 <div class="topnav">
 
-                    <a onClick={() => { return this.changeView("home") }} className="active"> Home</a>
+                    <a onClick={() => { window.location.reload() }} className="active"> Home</a>
                     <a onClick={() => { return this.changeView("create") }}>create</a>
                     <a onClick={() => { return this.changeView("admin") }}>Admin</a>
 
 
                     <div class="search-container">
-                        <form>
+                        <div>
+                            {console.log(this.state.input)}
                             <input type="text" placeholder="Who do you need?" name="search" onChange={this.handleChange} />
                             <button type="submit" onClick={() => { if (this.state.input !== null) { return this.changeView("search") } }}> Search </button>
-                        </form>
+                        </div>
                     </div>
 
                 </div>
@@ -109,9 +110,10 @@ class App extends React.Component {
                 <div>
                     {this.state.home && <Home cards={this.state.data} />}
                     {this.state.search && <Search data={this.state.data} input={this.state.input} />}
-                    {this.state.create && <Create home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}
+
                     {this.state.admin && <Admin cards={this.state.data} changeView={this.changeView} handleDelete={this.remove.bind(this)} />}
                 </div>
+                <div id="createBC">{this.state.create && <Create home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}</div>
             </div >
         )
     }

@@ -2,34 +2,31 @@ import axios from "axios";
 import React from "react";
 import { Card } from 'react-bootstrap';
 
+import "./style.css"
+
 
 const Admin = ({ cards, handleDelete, changeView }) => {
 
-
-
-
-
     return (
-        <>
-            {cards && cards.map((card, i) =>
-            (<Card className="Card" style={{
-                color: "#000"
-            }} key={i}>
-
-                <Card.Title>{card.name}</Card.Title>
-                <Card.Body style={{
-                    backgroundcolor: "gray"
-                }}>
-                    <Card.Text>{card.job}</Card.Text>
-                    <Card.Text>{card.contact}</Card.Text>
-                    <Card.Text>{card.adress}</Card.Text>
-                </Card.Body>
-                <Card.Img src={card.picture} />
-                <button type="button" onClick={() => handleDelete(card)}> delete </button>
-            </Card>)
-            )
-            }
-        </>
+        <div>
+            {cards && cards.map((card) =>
+                <div class="card" style={{
+                    color: "#000"
+                }} key={cards.indexOf(card)}>
+                    <img id="img" src={card.picture} />
+                    <div className="container">
+                        <h3>Name: {card.name}</h3>
+                        <div>
+                            <h4>Job: {card.job}</h4>
+                            <h4>Contact: {card.contact}</h4>
+                            <h4>Adress: {card.adress}</h4>
+                            <h4>Recommandations: {card.recommandations}</h4>
+                        </div>
+                        <button type="button" onClick={() => handleDelete(card)}> delete </button>
+                    </div>
+                </div>
+            )}
+        </div>
 
     )
 
