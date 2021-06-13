@@ -111,15 +111,29 @@ margin-right: auto;
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
-    width: 20em;
+    width: max-content;
     color: black;
 
 }
 
 .input{
-   width: 400px;
+   width: 500px;
    height:40px
 }
+.name{
+  height:40px;
+  width: 500px;
+  text-align: center;
+  border: auto;
+  
+}
+/* #submit{
+   margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    color: black;
+} */
 
 #createBC{
 width: 555px;
@@ -130,4 +144,12 @@ bottom: 0;
 left: 0;
 right: 0;  	
 margin: auto;
+}
+#btn{
+   margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height:40px;
+    border-radius: 25px
 }

@@ -56,34 +56,37 @@ class Create extends React.Component {
     render() {
 
         return (
-            < div id="card" >
-                <div id="createcard"> Create your business card here!  </div >
+            <>
+                < div id="card" >
+                    <div class="name" > Create your business card here!  </div >
 
 
-                <div > Full Name </ div>
-                <input class="input" placeholder="Enter your name" name="name" onChange={this.handleChange} />
-                <div  > Job </div>
-                <input class="input" placeholder="What is your job" name="job" onChange={this.handleChange} />
-                <div > Adress </div>
-                <input class="input" placeholder="Adress" name="adress" onChange={this.handleChange} />
-                <div> Phone number </div>
-                <input class="input" placeholder="Phone number" name="number" onChange={this.handleChange} />
-                <div > Upload picture </div>
-                <input class="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
-                <button class="input" onClick={() => {
-                    console.log("name here", this.state.name)
-                    if (this.state.name === null || this.state.job === null || this.state.adress === null || this.state.number === null) {
-                        alert("Please complete all required fields")
+                    <div class="name"> Full Name </ div>
+                    <input class="input" placeholder="Enter your name" name="name" onChange={this.handleChange} />
+                    <div class="name"> Job </div>
+                    <input class="input" placeholder="What is your job" name="job" onChange={this.handleChange} />
+                    <div class="name"> Adress </div>
+                    <input class="input" placeholder="Adress" name="adress" onChange={this.handleChange} />
+                    <div class="name"> Phone number </div>
+                    <input class="input" placeholder="Phone number" name="number" onChange={this.handleChange} />
+                    <div class="name"> Upload picture </div>
+                    <input class="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
+                    <button id="btn" onClick={() => { //here
+                        console.log("name here", this.state.name)
+                        if (this.state.name === null || this.state.job === null || this.state.adress === null || this.state.number === null) {
+                            alert("Please complete all required fields")
 
-                    }
-                    else {
-                        this.post()
-                        alert("Your business card is created")
-                    }
-                }}>Submit</button>
+                        }
+                        else {
+                            this.post()
+                            alert("Your business card is created")
+                        }
+                    }}>Submit</button>
 
 
-            </div>
+                </div>
+
+            </>
         )
 
 
