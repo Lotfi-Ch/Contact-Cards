@@ -154,3 +154,15 @@ margin: auto;
     height:40px;
     border-radius: 25px
 }
+
+#Norecommendation{
+  background-color: red;
+  border-radius: 25px;
+  color:white
+}
+
+#recommendation{
+  background-color: green;
+  border-radius: 25px;
+  color:white
+}

@@ -36,6 +36,21 @@ app.delete('/delete/:name', (req, res) => {
     })
 })
 
+app.patch('/create/recommand/:value', (req, res) => {
+    console.log(req.params);
+    Cards.findByIdAndUpdate(req.params.value, { $inc: { recommandations: 1 } }, { new: true })
+        .then(result =>
+            res.send(result))
+        .catch(err => console.error(err))
+});
+app.patch('/create/Norecommand/:value', (req, res) => {
+    console.log(req.params);
+    Cards.findByIdAndUpdate(req.params.value, { $inc: { recommandations: - 1 } }, { new: true })
+        .then(result =>
+            res.send(result))
+        .catch(err => console.error(err))
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
