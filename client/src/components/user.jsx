@@ -40,14 +40,14 @@ class User extends React.Component {
                         <h4>Job: {this.state.current.job}</h4>
                         <h4>Contact: {this.state.current.contact}</h4>
                         <div> You may change your contact number here! </div>
-                        <button onClick={() => {
+                        <button id="changebtn" onClick={() => {
                             this.modifycontact(this.state.current._id, this.state.newContact)
                             alert("you changed your contact number!")
                         }}> Submit </button>
                         <input name="newContact" onChange={this.handleChange} />
                         <h4>Adress: {this.state.current.adress}</h4>
                         <div> You may change your adress here! </div>
-                        <button onClick={() => {
+                        <button id="changebtn" onClick={() => {
                             this.modifyadress(this.state.current._id, this.state.newAdress)
                             alert("You changed your adress!")
                         }}> Submit </button>
