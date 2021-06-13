@@ -15,24 +15,26 @@ let match = (array, val) => {
 
 const Search = (props) => {
     return (
-        <div>{match(props.data, props.input).map((card) =>
-            <div class="card" style={{
-                color: "#000"
-            }} key={props.data.indexOf(card)}>
-                <img id="img" src={card.picture} />
-                <div className="container">
-                    <h3>Name: {card.name}</h3>
-                    <div>
-                        {console.log(props.input)}
-                        <h4>Job: {card.job}</h4>
-                        <h4>Contact: {card.contact}</h4>
-                        <h4>Adress: {card.adress}</h4>
-                        <h4>Recommandations: {card.recommandations}</h4>
+        <div>
+
+            {match(props.data, props.input).map((card) =>
+                <div class="card" style={{
+                    color: "#000"
+                }} key={props.data.indexOf(card)}>
+                    <img id="img" src={card.picture} />
+                    <div className="container">
+                        <h3>Name: {card.name}</h3>
+                        <div>
+                            {console.log(props.input)}
+                            <h4>Job: {card.job}</h4>
+                            <h4>Contact: {card.contact}</h4>
+                            <h4>Adress: {card.adress}</h4>
+                            <h4>Recommandations: {card.recommandations}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
-        }
+            )
+            }
         </div >
 
 

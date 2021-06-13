@@ -9,6 +9,7 @@ import Search from "./Search.jsx";
 import Create from "./Create.jsx";
 import Admin from "./Admin.jsx";
 import Preview from "./Preview.jsx"
+import Login from "./login.jsx"
 
 import "./style.css"
 
@@ -26,7 +27,10 @@ class App extends React.Component {
             create: false,
             admin: false,
             preview: false,
-            current: null
+            login: false,
+            current: null,
+            email: null,
+            password: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.changeView = this.changeView.bind(this)
@@ -49,7 +53,9 @@ class App extends React.Component {
         this.setState({ current: val })
     }
 
-    recommandations(value,choice) {
+
+
+    recommandations(value, choice) {
         axios.patch(`/create/${choice}/${value}`)
             .then(result => {
                 console.log("Changed!")
@@ -66,9 +72,9 @@ class App extends React.Component {
             })
     }
 
-
     handleChange(e) {
-        this.setState({ input: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
+        console.log(this.state.input)
     }
     changeView(val) {
         if (val === "search") {
@@ -80,6 +86,7 @@ class App extends React.Component {
                 create: false,
                 admin: false,
                 preview: false,
+                login: false,
             })
         } else if (val === "create") {
             this.setState({
@@ -88,6 +95,7 @@ class App extends React.Component {
                 create: true,
                 admin: false,
                 preview: false,
+                login: false,
             })
         } else if (val === "admin") {
             this.setState({
@@ -96,6 +104,7 @@ class App extends React.Component {
                 create: false,
                 admin: true,
                 preview: false,
+                login: false,
             })
         } else if (val === "preview") {
             this.setState({
@@ -104,6 +113,16 @@ class App extends React.Component {
                 create: false,
                 admin: false,
                 preview: true,
+                login: false,
+            })
+        } else if (val === "login") {
+            this.setState({
+                home: false,
+                search: false,
+                create: false,
+                admin: false,
+                preview: false,
+                login: true,
             })
         }
 
@@ -124,13 +143,13 @@ class App extends React.Component {
 
                     <a onClick={() => { window.location.reload() }} className="active"> Home</a>
                     <a onClick={() => { return this.changeView("create") }}>create</a>
-                    <a onClick={() => { return this.changeView("admin") }}>Admin</a>
+                    <a onClick={() => { return this.changeView("login") }}>Admin</a>
 
 
                     <div class="search-container">
                         <div>
                             {console.log(this.state.input)}
-                            <input type="text" placeholder="Who do you need?" name="search" onChange={this.handleChange} />
+                            <input type="text" placeholder="Who do you need?" name="input" onChange={this.handleChange} />
                             <button type="submit" onClick={() => { if (this.state.input !== null) { return this.changeView("search") } }}> Search </button>
                         </div>
                     </div>
@@ -142,6 +161,7 @@ class App extends React.Component {
                     {this.state.search && <Search data={this.state.data} input={this.state.input} />}
                     {this.state.preview && <Preview current={this.state.current} recommandations={this.recommandations} />}
                     {this.state.admin && <Admin cards={this.state.data} changeView={this.changeView} handleDelete={this.remove.bind(this)} />}
+                    {this.state.login && <Login email={this.state.email} password={this.state.password} handleChange={this.handleChange} changeView={this.changeView} />}
                 </div>
                 <div id="createBC">{this.state.create && <Create home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}</div>
             </div >

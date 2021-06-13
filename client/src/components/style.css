@@ -136,7 +136,7 @@ margin-right: auto;
     color: black;
 } */
 
-#createBC{
+/* #createBC{
 width: 555px;
 height: 555px;
 position: absolute;
@@ -145,7 +145,7 @@ bottom: 0;
 left: 0;
 right: 0;  	
 margin: auto;
-}
+} */
 #btn{
    margin-bottom: auto;
     margin-left: auto;
@@ -166,3 +166,6 @@ margin: auto;
   border-radius: 25px;
   color:white
 }
+
+
+

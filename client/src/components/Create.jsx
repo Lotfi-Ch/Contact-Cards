@@ -80,6 +80,7 @@ class Create extends React.Component {
                         else {
                             this.post()
                             alert("Your business card is created")
+                            document.location.reload(true)
                         }
                     }}>Submit</button>
 
