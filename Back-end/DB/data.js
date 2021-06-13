@@ -11,7 +11,7 @@ let data = [
         picture: "https://images.unsplash.com/photo-1583955275036-fd20a9c185bd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXV0b21vdGl2ZSUyMHRlY2huaWNpYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
         recommandations: 4
     }, {
-        name: "Mohamed",
+        name: "Asma",
         job: "Personal trainer",
         adress: "Lac II",
         contact: 22378927,

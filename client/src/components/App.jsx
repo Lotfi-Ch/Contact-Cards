@@ -8,6 +8,7 @@ import Home from "./Home.jsx";
 import Search from "./Search.jsx";
 import Create from "./Create.jsx";
 import Admin from "./Admin.jsx";
+import Preview from "./Preview.jsx"
 
 import "./style.css"
 
@@ -23,10 +24,13 @@ class App extends React.Component {
             home: true,
             search: false,
             create: false,
-            admin: false
+            admin: false,
+            preview: false,
+            current: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.changeView = this.changeView.bind(this)
+        this.changeCurrent = this.changeCurrent.bind(this)
     }
 
     componentDidMount() {
@@ -38,6 +42,10 @@ class App extends React.Component {
                 console.log("data hereeeee", response)
             }
         })
+    }
+
+    changeCurrent(val) {
+        this.setState({ current: val })
     }
 
     remove(card) {
@@ -61,25 +69,38 @@ class App extends React.Component {
                 home: true,
                 search: false,
                 create: false,
-                admin: false
+                admin: false,
+                preview: false,
             })
         } else if (val === "create") {
             this.setState({
                 home: false,
                 search: false,
                 create: true,
-                admin: false
+                admin: false,
+                preview: false,
             })
         } else if (val === "admin") {
             this.setState({
                 home: false,
                 search: false,
                 create: false,
-                admin: true
+                admin: true,
+                preview: false,
+            })
+        } else if (val === "preview") {
+            this.setState({
+                home: false,
+                search: false,
+                create: false,
+                admin: false,
+                preview: true,
             })
         }
 
     }
+
+
 
 
     render() {
@@ -87,7 +108,7 @@ class App extends React.Component {
         return (
 
 
-            
+
             <div id="home">
 
                 <div class="topnav">
@@ -108,9 +129,9 @@ class App extends React.Component {
                 </div>
 
                 <div>
-                    {this.state.home && <Home cards={this.state.data} />}
+                    {this.state.home && <Home view={this.changeView} change={this.changeCurrent} current={this.state.current} cards={this.state.data} />}
                     {this.state.search && <Search data={this.state.data} input={this.state.input} />}
-
+                    {this.state.preview && <Preview current={this.state.current} />}
                     {this.state.admin && <Admin cards={this.state.data} changeView={this.changeView} handleDelete={this.remove.bind(this)} />}
                 </div>
                 <div id="createBC">{this.state.create && <Create home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}</div>

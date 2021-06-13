@@ -1,6 +1,4 @@
 
-import { Card } from 'react-bootstrap';
-
 import "./style.css"
 
 import React from 'react'
@@ -14,7 +12,11 @@ const Home = (props) => {
                 <div class="card" style={{
                     color: "#000"
                 }} key={props.cards.indexOf(card)}>
-                    <img id="img" src={card.picture} />
+                    <img id="img" src={card.picture} onClick={() => {
+                        console.log("helloo", props)
+                        props.change(card)
+                        props.view("preview")
+                    }} />
                     <div className="container">
                         <h3>Name: {card.name}</h3>
                         <div>
