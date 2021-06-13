@@ -51,6 +51,14 @@ app.patch('/create/Norecommand/:value', (req, res) => {
         .catch(err => console.error(err))
 });
 
+app.patch('/modify/:id', (req, res) => {
+    console.log("resq.body here", req.body);
+    Cards.findByIdAndUpdate(req.params.id, { $set: { contact: req.body.contact } }, { new: true })
+        .then(result =>
+            res.send(result))
+        .catch(err => console.error(err))
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })

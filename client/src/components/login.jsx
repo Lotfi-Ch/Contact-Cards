@@ -51,7 +51,12 @@ const Login = (props) => {
                     if (props.email === "lotfichakchouk1@gmail.com" && props.password === "lotfi") {
                         props.changeView("admin")
                     } else {
-                        alert("wrong email or password")
+                        props.data.map((data) => {
+                            if (data.password === props.password && data.email === props.email) {
+                                props.changeView("user")
+                                props.changeCurrent(data)
+                            }
+                        })
                     }
                 }} class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
                     Sign In

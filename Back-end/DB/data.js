@@ -9,14 +9,19 @@ let data = [
         adress: "La soukra",
         contact: 22334455,
         picture: "https://images.unsplash.com/photo-1583955275036-fd20a9c185bd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXV0b21vdGl2ZSUyMHRlY2huaWNpYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 4
-    }, {
+        recommandations: 4,
+        email: "karim@gmail.com",
+        password: "karim"
+    }, 
+    {
         name: "Asma",
         job: "Personal trainer",
         adress: "Lac II",
         contact: 22378927,
         picture: "https://images.unsplash.com/photo-1571732154690-f6d1c3e5178a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uYWwlMjB0cmFpbmluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 6
+        recommandations: 6,
+        email: "asma@gmail.com",
+        password: "asma"
     },
     {
         name: "Sami",
@@ -24,7 +29,9 @@ let data = [
         adress: "La soukra",
         contact: 22304455,
         picture: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGx1bWJpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 8
+        recommandations: 8,
+        email: "test@gmail.com",
+        password: "test6"
     },
     {
         name: "Anis",
@@ -32,7 +39,9 @@ let data = [
         adress: "La soukra",
         contact: 22332755,
         picture: "https://images.unsplash.com/photo-1507494924047-60b8ee826ca9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZWxlY3RyaWNpYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 9
+        recommandations: 9,
+        email: "test@gmail.com",
+        password: "test5"
     },
     {
         name: "Aziz",
@@ -40,7 +49,9 @@ let data = [
         adress: "La Marsa",
         contact: 22497655,
         picture: "https://images.unsplash.com/photo-1586280268958-9483002d016a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2FyZGVuZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 4
+        recommandations: 4,
+        email: "test@gmail.com",
+        password: "test4"
     },
     {
         name: "Hamdi",
@@ -48,7 +59,9 @@ let data = [
         adress: "Le Kram",
         contact: 22334455,
         picture: "https://images.unsplash.com/photo-1583955275036-fd20a9c185bd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXV0b21vdGl2ZSUyMHRlY2huaWNpYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 2
+        recommandations: 2,
+        email: "test@gmail.com",
+        password: "test3"
     },
     {
         name: "Amin",
@@ -56,7 +69,9 @@ let data = [
         adress: "La soukra",
         contact: 22338054,
         picture: "https://images.unsplash.com/photo-1507494924047-60b8ee826ca9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZWxlY3RyaWNpYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        recommandations: 9
+        recommandations: 9,
+        email: "test@gmail.com",
+        password: "test2"
     }
 
 ]

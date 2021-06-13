@@ -11,11 +11,14 @@ class Create extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            data: this.props.data,
             name: null,
             job: null,
             adress: null,
-            number: null,
+            contact: null,
             picture: null,
+            email: null,
+            password: null,
             admin: this.props.admin,
             create: this.props.create,
             search: this.props.search,
@@ -24,6 +27,7 @@ class Create extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.changeView = this.changeView.bind(this)
         this.post = this.post.bind(this)
+        this.uniquePassword = this.uniquePassword.bind(this)
     }
 
     handleChange(e) {
@@ -50,8 +54,18 @@ class Create extends React.Component {
             adress: this.state.adress,
             contact: this.state.contact,
             picture: this.state.picture,
-            recommandations: 0
+            recommandations: 0,
+            email: this.state.email,
+            password: this.state.password
         }).then(result => this.changeView())
+    }
+    uniquePassword(password) {
+        this.state.data.map((element) => {
+            console.log(this.state.data)
+            if (element.password === password) {
+               return true
+            }
+        });
     }
     render() {
 
@@ -68,16 +82,25 @@ class Create extends React.Component {
                     <div class="name"> Adress </div>
                     <input class="input" placeholder="Adress" name="adress" onChange={this.handleChange} />
                     <div class="name"> Phone number </div>
-                    <input class="input" placeholder="Phone number" name="number" onChange={this.handleChange} />
+                    <input class="input" placeholder="Phone number" name="contact" onChange={this.handleChange} />
+                    <div class="name"> E-mail </div>
+                    <input class="input" placeholder="example@example.com" name="email" onChange={this.handleChange} />
+                    <div class="name"> Password</div>
+                    <input class="input" placeholder="Password" name="password" onChange={this.handleChange} />
                     <div class="name"> Upload picture </div>
                     <input class="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
-                    <button id="btn" onClick={() => { //here
-                        console.log("name here", this.state.name)
-                        if (this.state.name === null || this.state.job === null || this.state.adress === null || this.state.number === null) {
+                    <button id="btn" onClick={() => {
+                        if (this.uniquePassword(this.state.password)===true){
+                            alert("Password used! please choose another password 😄")
+                        }else if (this.state.name === null ||
+                            this.state.job === null ||
+                            this.state.adress === null ||
+                            this.state.contact === null ||
+                            this.state.password === null ||
+                            this.state.email === null) {
                             alert("Please complete all required fields")
 
-                        }
-                        else {
+                        } else {
                             this.post()
                             alert("Your business card is created")
                             document.location.reload(true)

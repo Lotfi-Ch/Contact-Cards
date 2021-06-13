@@ -15,7 +15,9 @@ const CardSchema = new mongoose.Schema({
     adress: String,
     contact: Number,
     picture: String,
-    recommandations: Number
+    recommandations: Number,
+    email: String,
+    password: String
 });
 
 const Cards = mongoose.model('Cards', CardSchema);
