@@ -51,9 +51,17 @@ app.patch('/create/Norecommand/:value', (req, res) => {
         .catch(err => console.error(err))
 });
 
-app.patch('/modify/:id', (req, res) => {
-    console.log("resq.body here", req.body);
+app.patch('/modify/contact/:id', (req, res) => {
+    console.log("req.body here", req.body);
     Cards.findByIdAndUpdate(req.params.id, { $set: { contact: req.body.contact } }, { new: true })
+        .then(result =>
+            res.send(result))
+        .catch(err => console.error(err))
+});
+
+app.patch('/modify/adress/:id', (req, res) => {
+    console.log("req.body here", req.body);
+    Cards.findByIdAndUpdate(req.params.id, { $set: { adress: req.body.adress } }, { new: true })
         .then(result =>
             res.send(result))
         .catch(err => console.error(err))
