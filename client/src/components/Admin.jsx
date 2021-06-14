@@ -22,7 +22,7 @@ const Admin = ({ cards, handleDelete, changeView }) => {
                             <h4>Adress: {card.adress}</h4>
                             <h4>Recommandations: {card.recommandations}</h4>
                         </div>
-                        <button type="button" onClick={() => handleDelete(card)}> delete </button>
+                        <button id="deletebtn" type="button" onClick={() => handleDelete(card)}> delete </button>
                     </div>
                 </div>
             )}

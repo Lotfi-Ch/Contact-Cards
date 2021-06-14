@@ -61,9 +61,10 @@ class Create extends React.Component {
     }
     uniquePassword(password) {
         this.state.data.map((element) => {
-            console.log(this.state.data)
+            console.log(this.state.data, password)
             if (element.password === password) {
-               return true
+                alert("Password used! please choose another password 😄")
+                return
             }
         });
     }
@@ -89,27 +90,27 @@ class Create extends React.Component {
                     <input class="input" placeholder="Password" name="password" onChange={this.handleChange} />
                     <div class="name"> Upload picture </div>
                     <input class="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
-                    <button id="btn" onClick={() => {
-                        if (this.uniquePassword(this.state.password)===true){
-                            alert("Password used! please choose another password 😄")
-                        }else if (this.state.name === null ||
-                            this.state.job === null ||
-                            this.state.adress === null ||
-                            this.state.contact === null ||
-                            this.state.password === null ||
-                            this.state.email === null) {
-                            alert("Please complete all required fields")
+                    <div class="name"> Submit once you finish all fields! 😁 </div>
 
-                        } else {
-                            this.post()
-                            alert("Your business card is created")
-                            document.location.reload(true)
-                        }
-                    }}>Submit</button>
 
 
                 </div>
+                <button id="btn" onClick={() => {
+                    this.uniquePassword(this.state.password)
+                    if (this.state.name === null ||
+                        this.state.job === null ||
+                        this.state.adress === null ||
+                        this.state.contact === null ||
+                        this.state.password === null ||
+                        this.state.email === null) {
+                        alert("Please complete all required fields")
 
+                    } else {
+                        this.post()
+                        alert("Your business card is created")
+                        document.location.reload(true)
+                    }
+                }}>Submit</button>
             </>
         )
 
