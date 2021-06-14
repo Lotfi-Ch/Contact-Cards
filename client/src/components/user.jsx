@@ -32,7 +32,7 @@ class User extends React.Component {
     }
     render() {
         return (
-            <><div class="card" style={{ color: "#000" }} >
+            <><div className="card" style={{ color: "#000" }} >
                 <img id="img" src={this.state.current.picture} />
                 <div className="container">
                     <h3>Name: {this.state.current.name}</h3>
@@ -45,8 +45,8 @@ class User extends React.Component {
                             alert("you changed your contact number!")
                         }}> Submit </button>
                         <input name="newContact" onChange={this.handleChange} />
-                        <h4>Adress: {this.state.current.adress}</h4>
-                        <div> You may change your adress here! </div>
+                        <h4>Address: {this.state.current.adress}</h4>
+                        <div> You may change your address here! </div>
                         <button id="changebtn" onClick={() => {
                             this.modifyadress(this.state.current._id, this.state.newAdress)
                             alert("You changed your adress!")

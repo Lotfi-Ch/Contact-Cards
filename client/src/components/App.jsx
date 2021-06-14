@@ -1,8 +1,6 @@
 import React from "react";
-
 import axios from "axios";
 import $ from "jquery";
-import { Button, Container, Form, Navbar, NavDropdown, Nav, FormControl } from 'react-bootstrap';
 
 import Home from "./Home.jsx";
 import Search from "./Search.jsx";
@@ -46,7 +44,6 @@ class App extends React.Component {
             type: 'get',
             success: (response) => {
                 this.setState({ data: response })
-                console.log("data here", response)
             }
         })
     }
@@ -54,8 +51,6 @@ class App extends React.Component {
     changeCurrent(val) {
         this.setState({ current: val })
     }
-
-
 
     recommandations(value, choice) {
         axios.patch(`/create/${choice}/${value}`)
@@ -77,7 +72,9 @@ class App extends React.Component {
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
+
     changeView(val) {
+        console.log(val);
         if (val === "search") {
             this.setState({ home: false, search: true, create: false, admin: false })
         } else if (val === "home") {
@@ -141,6 +138,14 @@ class App extends React.Component {
                 user: true
             })
         }
+        else if (val === "reload") {
+            this.setState({
+                home: false,
+                search: false,
+                admin: false,
+                create: true
+            })
+        }
 
 
     }
@@ -156,16 +161,15 @@ class App extends React.Component {
 
             <div id="home">
 
-                <div class="topnav">
+                <div className="topnav">
 
                     <a onClick={() => { window.location.reload() }} className="active"> Home</a>
                     <a onClick={() => { return this.changeView("create") }}>create</a>
                     <a onClick={() => { return this.changeView("login") }}>Login</a>
 
 
-                    <div class="search-container">
+                    <div className="search-container">
                         <div>
-                            {console.log(this.state.input)}
                             <input type="text" placeholder="Who do you need?" name="input" onChange={this.handleChange} />
                             <button type="submit" onClick={() => { if (this.state.input !== null) { return this.changeView("search") } }}> Search </button>
                         </div>
@@ -179,9 +183,9 @@ class App extends React.Component {
                     {this.state.preview && <Preview current={this.state.current} recommandations={this.recommandations} />}
                     {this.state.admin && <Admin cards={this.state.data} changeView={this.changeView} handleDelete={this.remove.bind(this)} />}
                     {this.state.login && <Login data={this.state.data} email={this.state.email} password={this.state.password} handleChange={this.handleChange} changeView={this.changeView} changeCurrent={this.changeCurrent} />}
-                    {this.state.user && <User current={this.state.current} data={this.state.data}  />}
+                    {this.state.user && <User current={this.state.current} data={this.state.data} />}
                 </div>
-                <div id="createBC">{this.state.create && <Create data={this.state.data} home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} />}</div>
+                <div id="createBC">{this.state.create && <Create data={this.state.data} home={this.state.home} search={this.state.search} create={this.state.create} admin={this.state.admin} change={this.changeView} />}</div>
             </div >
         )
     }
