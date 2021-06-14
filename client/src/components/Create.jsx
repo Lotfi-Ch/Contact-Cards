@@ -77,7 +77,7 @@ class Create extends React.Component {
                     <div className="name"> E-mail </div>
                     <input className="input" placeholder="example@example.com" name="email" onChange={this.handleChange} />
                     <div className="name"> Password</div>
-                    <input className="input" placeholder="Password" name="password" onChange={this.handleChange} />
+                    <input className="input" placeholder="Password" type="password" name="password" onChange={this.handleChange} />
                     <div className="name"> Upload picture </div>
                     <input className="input" placeholder="Upload your picture" name="picture" onChange={this.handleChange} />
                     <div className="name"> Submit once you finish all fields! 😁 </div>

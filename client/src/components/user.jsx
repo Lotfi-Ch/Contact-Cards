@@ -52,7 +52,7 @@ class User extends React.Component {
                             alert("You changed your adress!")
                         }}> Submit </button>
                         <input name="newAdress" onChange={this.handleChange} />
-                        <h4>You have {this.state.current.recommandations} recommandations </h4>
+                        <h4>You have {this.state.current.recommandations} recommendations </h4>
                     </div>
                 </div>
             </div>

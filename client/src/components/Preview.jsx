@@ -14,20 +14,20 @@ const Preview = (props) => {
                     <h4>Job: {props.current.job}</h4>
                     <h4>Contact: {props.current.contact}</h4>
                     <h4>Address: {props.current.adress}</h4>
-                    <h4>Recommandations: {props.current.recommandations}</h4>
+                    <h4>Recommendations: {props.current.recommandations}</h4>
                     <button id="recommendation" onClick={() => {
                         alert("Thank you for supporting this business😍")
-                        props.recommandations(props.current._id,"recommand")
+                        props.recommandations(props.current._id, "recommand")
                         document.location.reload(true)
 
-                    }}> I recommand this business! </button>
+                    }}> I recommend this business! </button>
                     <> </>
                     <button id="Norecommendation" onClick={() => {
                         alert("we are sorry to hear that 😔")
                         props.recommandations(props.current._id, "Norecommand")
                         document.location.reload(true)
 
-                    }}> I don't recommand this business! </button>
+                    }}> I don't recommend this business! </button>
                 </div>
             </div>
         </div>

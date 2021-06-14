@@ -23,7 +23,7 @@ const Home = (props) => {
                             <h4>Job: {card.job}</h4>
                             <h4>Contact: {card.contact}</h4>
                             <h4>Address: {card.adress}</h4>
-                            <h4>Recommandations: {card.recommandations}</h4>
+                            <h4>Recommendations: {card.recommandations}</h4>
                         </div>
                     </div>
                 </div>

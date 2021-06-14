@@ -11,7 +11,7 @@ const Login = (props) => {
             <div className="signin">
                 <div className="back-img">
                     <div className="sign-in-text">
-                        <h2 className="active">Sign In</h2>
+                        <h2 className="active">Log In</h2>
                     </div>
                     <div className="layer">
                     </div>
@@ -32,7 +32,7 @@ const Login = (props) => {
 
                         <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input pattern=".{8,}" className="mdl-textfield__input" type="password" name="password" id="sample3" onChange={props.handleChange} />
-                            <label className="mdl-textfield__label" for="sample3" id="email" >Password</label>
+                            <label type="password" className="mdl-textfield__label" for="sample3" id="email" >Password</label>
                             <span className="mdl-textfield__error"></span>
                         </div>
                         <br />
