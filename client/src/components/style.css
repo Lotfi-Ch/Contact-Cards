@@ -171,21 +171,44 @@ margin-right: auto;
 }
 
 #Norecommendation{
-  background-color: red;
-  border-radius: 25px;
-  color:white
+color: black;
+  	pointer-events: auto;
+	cursor: pointer;
+	background: #F83434;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #recommendation{
-  background-color: green;
-  border-radius: 25px;
-  color:white
+ color: black;
+  	pointer-events: auto;
+	cursor: pointer;
+	background: #47E12A;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #changebtn{
-   background-color: orangered;
-  border-radius: 25px;
-  color:white
+   color: whitesmoke;
+  	pointer-events: auto;
+	cursor: pointer;
+	background: #1921E5;
+	border: none;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
 }
 
 #deletebtn{

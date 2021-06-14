@@ -75,4 +75,11 @@ h2 {
   bottom:0;
   border-radius: 0px;
   background-color: rgba(63, 78, 191, 1);
+  color: whitesmoke;
+  font-size: 120%;
+}
+#email{
+  font-size: 120%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: auto;
 }
