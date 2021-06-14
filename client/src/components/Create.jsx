@@ -26,7 +26,7 @@ class Create extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.post = this.post.bind(this)
-        this.uniquePassword = this.uniquePassword.bind(this)
+        this.uniqueEmail = this.uniqueEmail.bind(this)
     }
 
     handleChange(e) {
@@ -47,11 +47,11 @@ class Create extends React.Component {
         }).then(result => this.changeView("home"))
     }
 
-    uniquePassword(password) {
+    uniqueEmail(val) {
         var test = false;
         this.state.data.map((element) => {
 
-            if (element.password === password) {
+            if (element.email === val) {
                 test = true
             }
         });
@@ -87,10 +87,10 @@ class Create extends React.Component {
                 </div>
                 <button id="btn" onClick={() => {
                     console.log(this.state.password);
-                    var test = this.uniquePassword(this.state.password)
+                    var test = this.uniqueEmail(this.state.email)
                     console.log(test);
                     if (test) {
-                        alert("Password used! please choose another password 😄")
+                        alert("Email used! please choose another E-mail 😄")
 
                     }
                     else if (this.state.name === null ||
